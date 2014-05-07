@@ -21,8 +21,8 @@ namespace OSConversions {
 			$latLon = $convertFormat->gridToLatLon($coordinates);
 
 
-			// Convert from the OS Airy1830	ellipsoid to the WGS84 ellipsoid
-			$convertEllipsoid = new EllipsoidConvert('OSGB36');
+			// Convert from the OSGB36 datum to the WGS84 datum
+			$convertEllipsoid = new DatumConvert('OSGB36');
 			$newCoordinates = $convertEllipsoid->convert($latLon, 'WGS84');
 
 			return $newCoordinates;
@@ -36,8 +36,8 @@ namespace OSConversions {
 			$convertFormat = new TransverseMercator();
 			$latLon = $convertFormat->gridToLatLon($eastNorth);
 
-			// Convert from the OS Airy1830	ellipsoid to the WGS84 ellipsoid
-			$convertEllipsoid = new EllipsoidConvert('OSGB36');
+			// Convert from the OSGB36 datum to the WGS84 datum
+			$convertEllipsoid = new DatumConvert('OSGB36');
 			$newCoordinates = $convertEllipsoid->convert($latLon, 'WGS84');
 
 			return new LatLonValues($newCoordinates->lat, $newCoordinates->lon, $newCoordinates->height);
@@ -46,8 +46,8 @@ namespace OSConversions {
 
 		public function wgs84ToGridRef(LatLonValues $latLon, $digits = 6) {
 
-			// Convert from the WGS84 ellipsoid to the OS Airy1830 ellipsoid
-			$convertEllipsoid = new EllipsoidConvert('WGS84');
+			// Convert from the WGS84 datum to the OSGB36 datum
+			$convertEllipsoid = new DatumConvert('WGS84');
 			$newCoordinates = $convertEllipsoid->convert($latLon, 'OSGB36');
 
 			// Convert ellipsoidal coordinates to grid of eastings and northings
@@ -63,8 +63,8 @@ namespace OSConversions {
 
 		public function wgs84ToEastNorth(LatLonValues $latLon) {
 			
-			// Convert from the WGS84 ellipsoid to the OS Airy1830 ellipsoid
-			$convertEllipsoid = new EllipsoidConvert('WGS84');
+			// Convert from the WGS84 datum to the OSGB36 datum
+			$convertEllipsoid = new DatumConvert('WGS84');
 			$newCoordinates = $convertEllipsoid->convert($latLon, 'OSGB36');
 		
 			// Convert ellipsoidal coordinates to grid of eastings and northings

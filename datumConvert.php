@@ -3,16 +3,14 @@ namespace OSConversions {
 
 	/**
 	 * 
-	 * EllipsoidConvert
-	 * 
-	 * A class for converting between ellipsoids.
+	 * A class for converting between datums.
 	 * 
 	 * @author Geoff Chapman <geoff.chapman@mac.com>
 	 * @version 2.0
 	 * @package OSConversions
 	 */
 			
-	class EllipsoidConvert {
+	class DatumConvert {
 
 		// Source Datum
 		protected $_fromDatum;
@@ -49,11 +47,7 @@ namespace OSConversions {
 		/**
 		 * 3D conversion of a set of coordinates from one ellipsoid to another
 		 * @param	object		A LatLon pair in decimal degrees
-		 * @param	array		Source ellipsoid parameters
-		 * @param	array		Helmert transformation parameters
-		 * @param	array		Destination ellipsoid parameters
-		 * @return	object		LatLon as decimal degrees
-		 *  
+		 * @param	array		Destination datum
 		 */
 		public function convert(LatLonValues $coordinates, $toDatum) {
 
@@ -90,7 +84,7 @@ namespace OSConversions {
 		}
 
 		/**
-		 * Convert to the WGS84 ellipsoidal datum
+		 * Convert to the WGS84 datum
 		 * @param float $x X axis value to be converted
 		 * @param float $y Y axis value to be converted
 		 * @param float $z Z axis value to be converted
@@ -103,7 +97,7 @@ namespace OSConversions {
 		}
 
 		/**
-		 * Convert from the WGS84 ellipsoidal datum
+		 * Convert from the WGS84 datum
 		 * @param float $x X axis value to be converted
 		 * @param float $y Y axis value to be converted
 		 * @param float $z Z axis value to be converted
