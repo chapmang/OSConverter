@@ -37,7 +37,7 @@ The library also contains a class for converting between datums that will work o
     $eastNorth = $conversion->wgs84ToEastNorth($coordinates);
 
 ### Non-OSGB Ellipsoid conversion
-The OSGB national grid uses the OSGB36 datum based upon the which uses the AIRY_1830 ellipsoid, the parameters for which the above methods use to convert a grid reference to lat/lon values. However, using the built-in EllipsoidConvert class it is possible to simply convert coordinates between any given ellipsoid provided the following values have been added to the appropriate configuration files.
+The OSGB national grid uses the OSGB36 datum based upon the AIRY_1830 ellipsoid, the parameters for which the above methods use to convert a grid reference to lat/lon values. However, using the built-in EllipsoidConvert class it is possible to simply convert coordinates between any given ellipsoid provided the following values have been added to the appropriate configuration files.
 
 NB: the following are the minimum require values
 #### datums.php
